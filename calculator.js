@@ -1,4 +1,5 @@
 const buttons = document.querySelector('.buttons')
+const display = document.querySelector('.display')
 
 function createButtons() {
     let buttonRow = document.createElement('div');
@@ -6,6 +7,9 @@ function createButtons() {
     for (i=1; i < 10; i++) {
         const button = document.createElement('button');
         button.innerHTML = i;
+        button.dataset.num = i
+        button.addEventListener('click', numClick)
+
         buttonRow.appendChild(button)
         console.log(buttonRow.innerHTML)
         if (i % 3 === 0) {
@@ -14,6 +18,10 @@ function createButtons() {
             buttonRow.setAttribute('class', 'buttonRow')
         }
     }
+}
+
+function numClick(e) {
+    display.innerHTML = e.target.dataset.num
 }
 
 createButtons();

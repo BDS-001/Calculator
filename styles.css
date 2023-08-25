@@ -11,6 +11,7 @@ body {
     border: 2px solid black;
     font-size: 30px;
     padding: 10px;
+    min-height: 35px;
 }
 
 button {
