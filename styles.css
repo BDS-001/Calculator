@@ -6,6 +6,7 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: black;
 
 }
 
@@ -20,29 +21,39 @@ body {
 
 button {
     border: 1px solid grey;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
+    font-size: larger;
+}
+
+button:hover {
+    background-color: rgb(86,86,86);
 }
 
 
 .buttons {
     display: flex;
-    width: 100%;
-    height: 100%;
-    flex-wrap: wrap;
+    flex: 1;
     background-color: pink;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.buttonRow {
+    display: flex;
+    flex: 1;
+    margin: 5px;
+    gap: 10px;
 }
 
 #calculator {
     width: 800px;
     height: 900px;
-    background-color: green;
+    background-color: grey;
     padding: 20px;
     display: flex;
     flex-direction: column;
     gap: 40px;
-    align-items: center;
 }
+
