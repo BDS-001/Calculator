@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: black;
     justify-content: center;
+    padding: 40px;
 }
 
 .display {
@@ -50,5 +51,6 @@ button:hover {
     flex-direction: column;
     gap: 20px;
     flex: 1;
+    min-height: 200px;
 }
 
