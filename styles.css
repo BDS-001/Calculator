@@ -56,10 +56,9 @@ button:hover {
 }
 
 #--0 {
-    background-color: green;
-    flex: 5;
+    flex: 11;
 }
 
 #divide {
-    flex: 1;
+    flex: 3;
 }
