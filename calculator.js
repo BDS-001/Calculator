@@ -81,6 +81,8 @@ function operatorClick(e) {
         if (display.innerHTML === DIVIDEBYZERO) {
             resetData()
             display.innerHTML = ''
+        } else if (display.innerHTML === '' && !isNaN(numA)) {
+            selectedOperator = e.target.dataset.operator
         } else {
             if (!isNaN(numA)) {
                 equal()
