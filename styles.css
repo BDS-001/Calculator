@@ -49,12 +49,15 @@ button:hover {
     max-width: 800px;
     max-height: 900px;
     background-color: grey;
-    padding: 60px;
+    padding-left: 60px;
+    padding-right: 60px;
+    padding-top: 30px;
+    padding-bottom: 30px;
     display: flex;
     flex-direction: column;
     gap: 80px;
     flex: 1;
-    min-height: 200px;
+    min-height: 570px;
     border: 20px solid rgb(77, 77, 77);
 }
 
