@@ -44,6 +44,7 @@ function addOperators() {
         operatorButton.innerHTML = operators[i]
         operatorButton.dataset.operator = operators[i]
         operatorButton.id = operatorClasses[i]
+        operatorButton.className = 'operator'
         operatorButton.addEventListener('click', operatorClick)
 
         if (operators[i] === 'c') {
