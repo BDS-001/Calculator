@@ -68,10 +68,8 @@ function operatorClick(e) {
         display.innerHTML = ''
         resetData()
     } else if (e.target.dataset.operator === '=') {
-        numB = parseInt(display.innerHTML)
+        numB = parseFloat(display.innerHTML)
         if (!isNaN(numB) && !isNaN(numA)) {
-            console.log('here')
-            console.log(numB, numA)
             display.innerHTML = operate(numA,numB,selectedOperator)
             resetData()
         } 
@@ -80,7 +78,7 @@ function operatorClick(e) {
             resetData()
             display.innerHTML = ''
         } else {
-            numA = parseInt(display.innerHTML)
+            numA = parseFloat(display.innerHTML)
             selectedOperator = e.target.dataset.operator
             display.innerHTML = ''
         }
