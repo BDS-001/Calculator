@@ -63,21 +63,28 @@ function numClick(e) {
     }
 }
 
+function equal() {
+    numB = parseFloat(display.innerHTML)
+    if (!isNaN(numB) && !isNaN(numA)) {
+        display.innerHTML = operate(numA,numB,selectedOperator)
+        resetData()
+    } 
+}
+
 function operatorClick(e) {
     if (e.target.dataset.operator === 'c') {
         display.innerHTML = ''
         resetData()
     } else if (e.target.dataset.operator === '=') {
-        numB = parseFloat(display.innerHTML)
-        if (!isNaN(numB) && !isNaN(numA)) {
-            display.innerHTML = operate(numA,numB,selectedOperator)
-            resetData()
-        } 
+        equal();
     } else {
         if (display.innerHTML === DIVIDEBYZERO) {
             resetData()
             display.innerHTML = ''
         } else {
+            if (!isNaN(numA)) {
+                equal()
+            }
             numA = parseFloat(display.innerHTML)
             selectedOperator = e.target.dataset.operator
             display.innerHTML = ''
