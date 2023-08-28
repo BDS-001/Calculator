@@ -1,6 +1,7 @@
 const buttons = document.querySelector('.buttons')
 const display = document.querySelector('.display')
 const NUMROWS = 5
+const DIVIDEBYZERO = 'Nice Try! You Cannot Divide By 0!'
 
 let numA = NaN
 let numB = NaN
@@ -54,7 +55,7 @@ function addOperators() {
 }
 
 function numClick(e) {
-    if (display.innerHTML === '0') {
+    if (display.innerHTML === '0' || display.innerHTML === DIVIDEBYZERO) {
         display.innerHTML = e.target.dataset.num
     } else {
         display.append(e.target.dataset.num)
@@ -64,19 +65,31 @@ function numClick(e) {
 function operatorClick(e) {
     if (e.target.dataset.operator === 'c') {
         display.innerHTML = ''
+        resetData()
     } else if (e.target.dataset.operator === '=') {
         numB = parseInt(display.innerHTML)
-        if (!isNaN(numB)) {
+        if (!isNaN(numB) && !isNaN(numA)) {
+            console.log('here')
+            console.log(numB, numA)
             display.innerHTML = operate(numA,numB,selectedOperator)
-            numA = NaN
-            numB = NaN
-            selectedOperator = ''
-        }
+            resetData()
+        } 
     } else {
-        numA = parseInt(display.innerHTML)
-        selectedOperator = e.target.dataset.operator
-        display.innerHTML = ''
+        if (display.innerHTML === DIVIDEBYZERO) {
+            resetData()
+            display.innerHTML = ''
+        } else {
+            numA = parseInt(display.innerHTML)
+            selectedOperator = e.target.dataset.operator
+            display.innerHTML = ''
+        }
     }
+}
+
+function resetData() {
+    numA = NaN
+    numB = NaN
+    selectedOperator = ''
 }
 
 function add(a, b) {
@@ -92,7 +105,11 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    return a / b
+    if (b === 0 ) {
+        return DIVIDEBYZERO
+    } else {
+        return a / b
+    }
 }
 
 function operate(a,b,operator) {
