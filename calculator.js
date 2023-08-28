@@ -2,6 +2,10 @@ const buttons = document.querySelector('.buttons')
 const display = document.querySelector('.display')
 const NUMROWS = 5
 
+let numA = NaN
+let numB = NaN
+let selectedOperator = ''
+
 function createButtonRows() {
 
     for (i=0; i < NUMROWS; i++) {
@@ -60,6 +64,18 @@ function numClick(e) {
 function operatorClick(e) {
     if (e.target.dataset.operator === 'c') {
         display.innerHTML = ''
+    } else if (e.target.dataset.operator === '=') {
+        numB = parseInt(display.innerHTML)
+        if (!isNaN(numB)) {
+            display.innerHTML = operate(numA,numB,selectedOperator)
+            numA = NaN
+            numB = NaN
+            selectedOperator = ''
+        }
+    } else {
+        numA = parseInt(display.innerHTML)
+        selectedOperator = e.target.dataset.operator
+        display.innerHTML = ''
     }
 }
 
@@ -81,13 +97,13 @@ function divide(a, b) {
 
 function operate(a,b,operator) {
     if (operator === '+') {
-        add(a,b)
+        return add(a,b)
     } else if (operator === '-') {
-        subtract(a,b)
+        return subtract(a,b)
     } else if (operator === '*') {
-        multiply(a,b)
+        return multiply(a,b)
     } else if (operator === '/') {
-        divide(a,b)
+        return divide(a,b)
     }
 }
 
