@@ -25,6 +25,13 @@ button {
     font-size: 300%;
     color: black;
     background-color: white;
+    transition: all 0.2s ease;
+}
+
+button:active {
+
+    transform: scale(0.85)
+
 }
 
 button:hover {
