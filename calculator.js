@@ -35,8 +35,8 @@ function addNumButtons() {
 }
 
 function addOperators() {
-    const operators = ['+','-','*','/','=', 'c']
-    const operatorClasses = ['add', 'subtract', 'multiply', 'divide','equal', 'clear']
+    const operators = ['+','-','*','/','=', 'c', '.']
+    const operatorClasses = ['add', 'subtract', 'multiply', 'divide','equal', 'clear', 'decimal']
     const buttonRows = document.querySelectorAll('.buttonRow')
 
     for (i=0; i < operators.length; i++) {
@@ -47,8 +47,8 @@ function addOperators() {
         operatorButton.className = 'operator'
         operatorButton.addEventListener('click', operatorClick)
 
-        if (operators[i] === 'c') {
-            buttonRows[i - 1].append(operatorButton)
+        if (operators[i] === 'c' || operators[i] === '.') {
+            buttonRows[NUMROWS-1].append(operatorButton)
         } else {
             buttonRows[i].append(operatorButton)
         }
@@ -77,6 +77,10 @@ function operatorClick(e) {
         resetData()
     } else if (e.target.dataset.operator === '=') {
         equal();
+    } else if (e.target.dataset.operator === '.') {
+        if (!display.innerHTML.includes('.')) {
+            display.append('.')
+        }
     } else {
         if (display.innerHTML === DIVIDEBYZERO) {
             resetData()

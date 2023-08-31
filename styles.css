@@ -87,3 +87,7 @@ button:hover {
 #clear {
     background-color: rgb(255, 181, 181);
 }
+
+#decimal {
+    background-color: rgb(181, 198, 255);
+}
